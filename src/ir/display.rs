@@ -138,13 +138,13 @@ impl<'a, PD: PrintDecorator> Display for FunctionBodyDisplay<'a, PD> {
                 .iter()
                 .map(|(ty, val)| format!("{}: {}", val, ty))
                 .collect::<Vec<_>>();
-            writeln!(
+            write!(
                 f,
                 "{}  {}({}): # {}",
                 self.indent,
                 block_id,
                 block_params.join(", "),
-                block.desc
+                block.desc,
             )?;
 
             if let Some(decorator) = self.decorator {
